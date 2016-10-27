@@ -1,0 +1,22 @@
+
+<html>
+<head> <title>Contactanos </title></head>
+<body>
+{% if info_enviado %}
+    Gracias por enviar un comentario, nos pondremos en contacto con usted.
+    <br>
+    La informacion recibida fue la siguiente<br>
+    <p>Email utilizado: {{email}}</p>
+    <p>Titulo: {{titulo}}</p>
+    <p>Texto enviado: </p><br><br><h3>{{texto}}<h3>
+
+{% else %}
+    <form action="." method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+    <input type="submit" value="submit"/>
+    </form>
+{% endif %}
+
+</body>
+</html>
